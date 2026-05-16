@@ -75,7 +75,7 @@ function Sidebar() {
                     <Link href={'/help'}>Privacy</Link>
                     <Link href={'/help'}>Help</Link>
                 </div>
-                <p>&copy;Copyright 2022 <Link href={'/'}>SnippetMaster</Link></p>
+                <p>&copy; 2026 <Link href={'/'}>snp·try</Link></p>
             </footer>
         </SidebarStyled>
     )
@@ -83,19 +83,27 @@ function Sidebar() {
 
 const SidebarStyled = styled.div`
     width: ${props => props.collapsed ? props.theme.sidebarWidth : props.theme.sidebarCollapsed};
-    height: calc(100vh - 8vh);
+    height: calc(100vh - 4.25rem);
+    top: 4.25rem;
     position: fixed;
-    background-color: ${props => props.theme.colorBg2};
+    left: 0;
+    background: ${props => props.theme.colorBg2};
+    border-right: 2px dashed ${props => props.theme.borderColor};
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     .active{
         background-color: ${props => props.theme.activeNavLink};
+        border-radius: ${props => props.theme.borderRadiusSm};
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+        box-shadow: inset 4px 0 0 ${props => props.theme.colorBrutal || props.theme.colorPrimary};
+        outline: 1px solid ${props => props.theme.borderColor};
         i{
-            color: ${props => props.theme.colorIcons2} !important;
+            color: ${props => props.theme.colorBrutalAccent || props.theme.colorPrimary2} !important;
         }
         a{
-            color: ${props => props.theme.colorIcons2} !important;
+            color: ${props => props.theme.colorTextLight} !important;
         }
     }
     .navigation{

@@ -1,30 +1,50 @@
+# snp·try
+
+Code snippet hub (Next.js frontend + Node/Mongo backend). Rebranded from Snippet Master; use GitHub repo name **`snp-try`** if you want the URL to match.
+
+**Rename on GitHub:** open the repo → **Settings → General → Repository name** → set to `snp-try` → Rename. Then clone:
+
+```bash
+git clone https://github.com/navsharma26/snp-try.git
+cd snp-try
+```
+
+Until you rename, clone the current URL:
+
+```bash
+git clone https://github.com/navsharma26/Snippet-Master-Reboot.git
+```
+
 ## Installation
 
-1. Clone this repository to your local machine.
-2. Navigate to the project's root directory.
-3. Install the project dependencies using npm: npm install
+1. Install dependencies in each part of the project as needed, for example:
 
-## Configuration
+   ```bash
+   cd snippet-master && npm install
+   cd ../backend && npm install
+   ```
 
-1. Create a `.env` file in the root directory of your project in server folder.
-2. Add the following environment variables to the `.env` file:
+1. Create a `.env` file in the **backend** (server) folder.
+2. Add the following environment variables:
 
-- PORT=8000
-- MONGO_URI=<your-mongo-uri>
-- CLIENT_URL=http://localhost:3000
-- JWT_SECRET=<your-jwt-secret>
+- `PORT=8000`
+- `MONGO_URI=<your-mongo-uri>`
+- `CLIENT_URL=http://localhost:3000`
+- `JWT_SECRET=<your-jwt-secret>`
 
-Make sure to replace `<your-mongo-uri>` with your actual MongoDB URI and `<your-jwt-secret>` with your preferred JWT secret.
+Replace placeholders with your MongoDB URI and a strong JWT secret.
 
 ## Development
 
-To start the development server and run the app locally, follow these steps:
+From `snippet-master/`:
 
-1. Run the following command: npm run dev
+```bash
+npm run dev
+```
+
+Use **Node 18 or 20 LTS** for Next.js 12 compatibility.
 
 ## Contributing
 
-We welcome contributions to improve our project! If you'd like to contribute, please follow these steps:
-
-1. Fork the repository and clone it to your local machine.
-2. Create a new branch for your feature/fix.
+1. Fork the repository and clone it locally.
+2. Create a branch for your feature or fix.

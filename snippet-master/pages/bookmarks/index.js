@@ -63,12 +63,14 @@ function Bookmarks() {
 const BookmarksStyled = styled.div`
     .snippets-con{
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        padding: 6.1rem 1.5rem;
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+        padding: 1.75rem clamp(1rem, 4vw, 1.75rem) 2rem;
         grid-gap: ${props => props.theme.gridGap};
-        transition: all .2s ease-in-out;
+        transition: all 0.25s ease;
+        max-width: 1600px;
+        margin: 0 auto;
         @media screen and (max-width: 1260px){
-            grid-template-columns: repeat(1, 1fr);
+            grid-template-columns: minmax(0, 1fr);
         }
     }
 `;

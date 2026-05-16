@@ -44,6 +44,10 @@ const ButtonStyled = styled.button`
     z-index: 5;
     cursor: pointer;
     overflow: hidden;
+    transition: transform 0.14s ease, box-shadow 0.14s ease;
+    &:active {
+        transform: translate(2px, 2px);
+    }
     i{
         margin-right: 1rem;
         color: ${props => props.theme.colorWhite};

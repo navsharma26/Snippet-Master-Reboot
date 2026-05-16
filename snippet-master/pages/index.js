@@ -1,4 +1,3 @@
-import Head from "next/head";
 import styled from "styled-components";
 import Button from "../Components/Button/Button";
 import Categories from "../Components/Categories/Categories";
@@ -12,7 +11,7 @@ import { down } from "../utils/Icons";
 
 export default function Home() {
   const theme = useThemeContext();
-  const { snippets, loading, loadMore, expandSnippet } = useSnippetContext();
+  const { snippets, loading, loadMore } = useSnippetContext();
 
   return (
     <MainContentStyled theme={theme}>
@@ -59,17 +58,20 @@ export default function Home() {
 
 const MainContentStyled = styled.div`
   .categories-con {
-    position: fixed;
-    z-index: 3;
+    position: relative;
+    z-index: 2;
+    height: 0;
   }
   .snippets-con {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    padding: 6.1rem 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 420px), 1fr));
+    padding: 7.25rem clamp(1rem, 4vw, 1.75rem) 2rem;
     grid-gap: ${(props) => props.theme.gridGap};
-    transition: all 0.2s ease-in-out;
+    transition: all 0.25s ease;
+    max-width: 1600px;
+    margin: 0 auto;
     @media screen and (max-width: 1260px) {
-      grid-template-columns: repeat(1, 1fr);
+      grid-template-columns: minmax(0, 1fr);
     }
   }
 `;

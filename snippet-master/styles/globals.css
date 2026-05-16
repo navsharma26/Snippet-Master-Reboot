@@ -2,8 +2,7 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Sora', system-ui, -apple-system, sans-serif;
 }
 
 a {
@@ -17,34 +16,62 @@ a {
   margin: 0;
   padding: 0;
   text-decoration: none;
-  font-family: 'Nunito', sans-serif;
+  font-family: 'Sora', system-ui, -apple-system, sans-serif;
 }
 
-body{
-  background-color: #181818;
-  font-size: 17px;
+::selection {
+  background: rgba(255, 107, 53, 0.35);
+  color: #fafafa;
 }
+
+body {
+  background-color: #07070b;
+  background-image:
+    repeating-linear-gradient(
+      -12deg,
+      transparent,
+      transparent 44px,
+      rgba(255, 255, 255, 0.02) 44px,
+      rgba(255, 255, 255, 0.02) 45px
+    ),
+    radial-gradient(ellipse 90% 70% at 10% -20%, rgba(255, 107, 53, 0.18) 0%, transparent 45%),
+    radial-gradient(ellipse 70% 50% at 92% 8%, rgba(0, 212, 170, 0.12) 0%, transparent 42%),
+    linear-gradient(180deg, #07070b 0%, #050508 100%);
+  background-attachment: fixed;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+pre,
+code,
+.syntax-highlighter,
+.snippet-form textarea,
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+}
+
 body::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
 }
 
 body::-webkit-scrollbar-track {
-  background: #282c34;
+  background: #0c0c12;
 }
 
 body::-webkit-scrollbar-thumb {
-  background: linear-gradient(110.42deg, #CF57A3 29.2%, #4731B6 63.56%);
-  border-radius: 15px;
+  background: linear-gradient(180deg, #ff6b35 0%, #00d4aa 100%);
+  border-radius: 0;
+  border: 2px solid #0c0c12;
 }
 
 body::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(11.42deg, #CF57A3 29.2%, #4731B6 63.56%);
+  background: linear-gradient(180deg, #ff8f5c 0%, #33ffce 100%);
 }
 
-
-
-button, textarea, input{
+button,
+textarea,
+input {
   font-family: inherit;
   font-size: inherit;
   outline: none;
@@ -53,49 +80,51 @@ button, textarea, input{
   cursor: pointer;
 }
 
-.reg-link{
+.reg-link {
   display: flex;
   justify-content: flex-end;
-  font-size: 16px;
+  font-size: 15px;
   margin-top: -1.5rem;
-  margin-bottom: .8rem;
+  margin-bottom: 0.8rem;
   text-decoration: underline;
+  text-underline-offset: 3px;
 }
+
 .page-loader-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: red;
+  background-color: #07070b;
   z-index: 999;
   animation: fadeOut 2s ease-in-out forwards;
 }
 
-
-.reg-link a:hover{
-  color: #7263F3;
+.reg-link a:hover {
+  color: #00d4aa;
 }
 
-.load-more{
+.load-more {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding-bottom: 3rem;
-  margin-top: 1rem;
+  padding-bottom: 3.5rem;
+  margin-top: 1.25rem;
 }
 
-.main-title{
-  font-size: 1.3rem;
+.main-title {
+  font-size: 1.25rem;
   font-weight: 700;
-  padding-left: 1.5rem;
+  padding-left: clamp(1rem, 4vw, 1.5rem);
   padding-top: 2rem;
-  padding-right: 1.5rem;
+  padding-right: clamp(1rem, 4vw, 1.5rem);
+  letter-spacing: -0.03em;
 }
 
-.loading-con{
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
+.loading-con {
+  padding-left: clamp(1rem, 4vw, 1.5rem);
+  padding-right: clamp(1rem, 4vw, 1.5rem);
   width: 100%;
 }
 
@@ -104,44 +133,26 @@ pre::-webkit-scrollbar {
   height: 8px;
 }
 
-
-/* Track */
 pre::-webkit-scrollbar-track {
-  background: #282c34;
-  border-top-right-radius: 15px;
-  border-bottom-right-radius: 15px;
+  background: #13131a;
+  border-radius: 0;
 }
 
-/* Handle */
 pre::-webkit-scrollbar-thumb {
-  background: linear-gradient(110.42deg, rgba(207, 87, 163, 0.63) 29.2%, rgba(71, 49, 182, 0.63) 63.56%);
-  border-radius: 15px;
+  background: linear-gradient(180deg, rgba(255, 107, 53, 0.65) 0%, rgba(0, 212, 170, 0.65) 100%);
+  border-radius: 0;
 }
-
 
 .snippet-form textarea::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
-/* Track */
-.snippet-form textarea::-webkit-scrollbar-track {
- 
-}
-
-/* Handle */
 .snippet-form textarea::-webkit-scrollbar-thumb {
-  background: linear-gradient(110.42deg, rgba(207, 87, 163, 0.63) 29.2%, rgba(71, 49, 182, 0.63) 63.56%);
-  border-radius: 15px;
+  background: linear-gradient(180deg, rgba(255, 107, 53, 0.55) 0%, rgba(0, 212, 170, 0.55) 100%);
+  border-radius: 0;
 }
 
-/* Handle on hover */
 .snippet-form textarea::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(110.42deg, #CF57A3 29.2%, #4731B6 63.56%);
+  background: linear-gradient(180deg, #ff6b35 0%, #00d4aa 100%);
 }
-
-
-
-
-
-

@@ -41,8 +41,11 @@ function Header() {
                     </button>
                 </div>
                 <div className="logo">
-                    <Image src={logo} width={40} height={40} />
-                    <h4>SnippetMaster</h4>
+                    <Image src={logo} width={40} height={40} alt="" className="logo-mark" />
+                    <div className="brand-type">
+                        <h4>snp·try</h4>
+                        <span className="brand-tag">build · stash · run</span>
+                    </div>
                 </div>
             </div>
             <div className="user-content">
@@ -122,21 +125,39 @@ function Header() {
 }
 
 const HeaderStyled = styled.header`
-    height: 8vh;
+    height: 4.25rem;
+    min-height: 4.25rem;
     width: 100%;
-    background-color: ${props => props.theme.colorBg};
+    background: ${props => props.theme.colorBg};
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border-bottom: 2px solid ${props => props.theme.borderColor};
+    box-shadow: none;
+    &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 100%;
+        height: 2px;
+        background: ${props => props.theme.colorGradient};
+        opacity: 0.85;
+        pointer-events: none;
+    }
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: ${props => props.theme.padLRSm};
     position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     z-index: 3;
     .btn-login{
         i{
             color: ${props => props.theme.colorGrey0};
         }
     }
-    top: 0;
     .nav-btns{
         display: flex;
         align-items: center;
@@ -192,14 +213,35 @@ const HeaderStyled = styled.header`
         .logo{
             display: flex;
             align-items: center;
+            gap: 0.65rem;
+        }
+        .logo-mark {
+            border: 2px solid ${props => props.theme.borderColor};
+            border-radius: ${props => props.theme.borderRadiusSm};
+            padding: 2px;
+            background: ${props => props.theme.colorBg3};
+        }
+        .brand-type {
+            display: flex;
+            flex-direction: column;
+            gap: 0.1rem;
+            line-height: 1.1;
+        }
+        .brand-tag {
+            font-family: 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: ${props => props.theme.colorTextSecondary};
+            opacity: 0.95;
         }
         h4{
             font-size: ${props => props.theme.fH4};
-            margin-left: .5rem;
-            background: ${props => props.theme.name === 'default' ? 'transparent' : props.theme.colorGradient};
-            -webkit-background-clip: ${props => props.theme.name === 'default' ? 'none' : 'text'};
-            -webkit-text-fill-color: ${props => props.theme.name === 'default' ? props.theme.colorGrey0 : 'transparent'};
-
+            margin: 0;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            color: ${props => props.theme.colorTextLight};
         }
     }
 

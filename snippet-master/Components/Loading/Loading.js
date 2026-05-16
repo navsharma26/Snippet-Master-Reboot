@@ -1,9 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import { useThemeContext } from '../../context/themeContext'
 
 function Loading() {
+    const theme = useThemeContext()
     return (
-        <LoadingStyled>
+        <LoadingStyled theme={theme}>
             <div className="lds-ring"><div></div><div></div><div></div><div></div></div>
         </LoadingStyled>
     )
@@ -17,20 +19,20 @@ const LoadingStyled = styled.div`
     .lds-ring {
         display: inline-block;
         position: relative;
-        width: 80px;
-        height: 80px;
+        width: 72px;
+        height: 72px;
     }
     .lds-ring div {
         box-sizing: border-box;
         display: block;
         position: absolute;
-        width: 64px;
-        height: 64px;
-        margin: 8px;
-        border: 4px solid #fff;
+        width: 58px;
+        height: 58px;
+        margin: 7px;
+        border: 3px solid ${props => props.theme.colorPrimary};
         border-radius: 50%;
-        animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
-        border-color: #fff transparent transparent transparent;
+        animation: lds-ring 1.15s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+        border-color: ${props => props.theme.colorPrimary} transparent transparent transparent;
     }
     .lds-ring div:nth-child(1) {
         animation-delay: -0.45s;

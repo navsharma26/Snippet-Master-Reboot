@@ -40,7 +40,7 @@ exports.create = (req, res) => {
 
     //create snippet
     let slug = slugify(title).toLowerCase();
-    let mtitle = `${title} | Snippet Master`;
+    let mtitle = `${title} | snp·try`;
 
     let snippet = new SnippetSchema({
         title,

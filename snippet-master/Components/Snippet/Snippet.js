@@ -130,7 +130,7 @@ function Snippet({ snippet }) {
         background: "#282c34",
       },
       "::-webkit-scrollbar-thumb": {
-        background: "linear-gradient(110.42deg, #CF57A3 29.2%, #4731B6 63.56%)",
+        background: "linear-gradient(180deg, #ff6b35 0%, #00d4aa 100%)",
         borderRadius: "10px",
       },
       "::-webkit-scrollbar-thumb:hover": {
@@ -493,12 +493,33 @@ function Snippet({ snippet }) {
 
 const SnippetStyled = styled.div`
   width: 100%;
-  background-color: ${(props) => props.theme.colorBg2};
-  border-radius: ${(props) => props.theme.borderRadiusSm};
+  background: ${(props) => props.theme.colorBg2};
+  border-radius: ${(props) => props.theme.borderRadiusMd};
+  border: 2px solid ${(props) => props.theme.borderColor};
+  box-shadow: 6px 6px 0 ${(props) => props.theme.colorGreyDark};
   position: relative;
   z-index: 1;
   grid-column: ${(props) => (props.expanded ? "span 2" : "span 1")};
-  transition: all 0.2s ease-in-out;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: ${(props) => props.theme.colorGradient};
+    opacity: 0.95;
+    pointer-events: none;
+  }
+  &:hover {
+    transform: translate(-3px, -3px);
+    border-color: ${(props) =>
+      props.theme.colorBrutal || props.theme.colorPrimary};
+    box-shadow: 9px 9px 0
+      ${(props) => props.theme.colorBrutalAccent || props.theme.colorPrimary2};
+  }
   .title-lang {
     display: flex;
     align-items: center;
@@ -509,7 +530,7 @@ const SnippetStyled = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 5px;
+      border-radius: ${(props) => props.theme.borderRadiusSm};
       border: 1px solid ${(props) => props.theme.colorIcons3};
     }
   }
@@ -525,11 +546,10 @@ const SnippetStyled = styled.div`
     }
   }
   .copy {
-    background: linear-gradient(180.94deg, #f56693 26.59%, #6fcf97 86.88%);
+    background: ${(props) => props.theme.colorGradient};
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    text-fill-color: transparent;
   }
   .snippet-con {
     padding: 2rem;
@@ -550,11 +570,12 @@ const SnippetStyled = styled.div`
         .profile-img {
           border-radius: 50%;
           border: 2px solid ${(props) => props.theme.colorPrimary} !important;
+          box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.22);
         }
         .user-text {
           margin-left: 1rem;
           h3 {
-            color: ${(props) => props.theme.colorPrimaryGreen};
+            color: ${(props) => props.theme.colorPrimary};
             &:hover {
               color: ${(props) => props.theme.colorPrimary};
               text-decoration: underline;
@@ -564,11 +585,10 @@ const SnippetStyled = styled.div`
       }
       .s-title3 {
         margin: 1rem 0;
-        background: linear-gradient(91deg, #f56693, #6fcf97 55%);
+        background: ${(props) => props.theme.colorGradient};
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
-        text-fill-color: transparent;
       }
     }
     .snippet-mid {
@@ -592,29 +612,21 @@ const SnippetStyled = styled.div`
         flex-direction: column;
         &:hover {
           i {
-            transform: scale(1.1);
-            transition: all 0.3s ease-in-out;
-            color: #cf57a3;
+            transform: scale(1.08);
+            color: ${(props) => props.theme.colorPrimary};
             opacity: 1;
           }
         }
         i {
           font-size: 1.3rem;
-          background: linear-gradient(
-            180.94deg,
-            #f56693 26.59%,
-            #6fcf97 86.88%
-          );
-          -webkit-background-clip: text;
-          -webkit-text-fill-color: transparent;
-          background-clip: text;
-          text-fill-color: transparent;
-          opacity: 0.8;
+          color: ${(props) => props.theme.colorPrimary};
+          opacity: 0.85;
           transition: all 0.3s ease-in-out;
         }
       }
       pre {
-        border-radius: ${(props) => props.theme.borderRadiusSm};
+        border-radius: ${(props) => props.theme.borderRadiusMd};
+        border: 1px solid ${(props) => props.theme.colorIcons3};
         max-height: ${(props) => (props.expanded ? "600px" : "350px")};
         height: ${(props) => (props.expanded ? "500px" : "350px")};
         code {

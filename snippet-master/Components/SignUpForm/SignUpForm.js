@@ -181,7 +181,7 @@ const SignUpFormStyled = styled.form`
         }
     }
     .form-bottom{
-        background-color: #202020;
+        background-color: ${props => props.theme.colorBg2};
         padding: 3rem;
         border-bottom-left-radius: ${props => props.theme.borderRadiusMd};
         border-bottom-right-radius: ${props => props.theme.borderRadiusMd};

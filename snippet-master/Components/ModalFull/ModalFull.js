@@ -176,7 +176,7 @@ function ModalFull({router}) {
                 background: '#282c34'
             },
             "::-webkit-scrollbar-thumb": {
-                background: 'linear-gradient(110.42deg, #CF57A3 29.2%, #4731B6 63.56%)',
+                background: 'linear-gradient(180deg, #ff6b35 0%, #00d4aa 100%)',
                 borderRadius: '10px'
             },
             "::-webkit-scrollbar-thumb:hover": {
@@ -348,18 +348,21 @@ const ModalFullStyled = styled.div`
         background-color: ${props => props.theme.colorIcons4};
         position: absolute;
         top: 0;
-        backdrop-filter: blur(3px);
+        backdrop-filter: blur(8px);
     }
     .modal-content{
         position: absolute;
-        width: 60%;
+        width: min(92vw, 720px);
+        max-height: 90vh;
+        overflow-y: auto;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         background: ${props => props.theme.colorBg2};
         padding: 2rem;
-        border-radius: ${props => props.theme.borderRadiusSm};
-        box-shadow: ${props => props.theme.shadow3};
+        border-radius: ${props => props.theme.borderRadiusMd};
+        border: 1px solid ${props => props.theme.borderColor};
+        box-shadow: ${props => props.theme.shadow2}, ${props => props.theme.shadow3};
         z-index: 15;
         .input-control{
             margin: 1.5rem 0;

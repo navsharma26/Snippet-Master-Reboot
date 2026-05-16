@@ -52,7 +52,7 @@ const ActionButtonStyled = styled.button`
             transform: scale(1.7);
         }
         i{
-            color: ${props => props.theme.colorPrimaryGreen};
+            color: ${props => props.theme.colorBrutalAccent || props.theme.colorPrimary2};
             transition: all .2s ease-in-out;
         }
     }

@@ -15,9 +15,9 @@ function MainContent({children}) {
 const MainContentStyled = styled.main`
     flex: 1;
     margin-left: ${props => props.collapsed ? props.theme.sidebarWidth  : props.theme.sidebarCollapsed};
-    background-color: ${props => props.theme.colorBg3};
+    background: transparent;
     min-height: 100vh;
-    margin-top: 8vh;
+    margin-top: 4.25rem;
     position: relative;
 `;
 

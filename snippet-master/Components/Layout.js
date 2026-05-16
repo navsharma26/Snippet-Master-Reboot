@@ -78,12 +78,14 @@ const LayoutStyled = styled.div`
         position: fixed;
         right: 1.5rem;
         background-color: ${props => props.theme.colorBg};
-        top: 4.4rem;
+        top: 4.75rem;
         z-index: 5;
         width: 270px;
-        border-radius: ${props => props.theme.borderRadiusSm};
+        border-radius: ${props => props.theme.borderRadiusMd};
         box-shadow: ${props => props.theme.shadow6};
-        border: 1px solid ${props => props.theme.colorIcons3};
+        border: 1px solid ${props => props.theme.borderColor};
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
         .nav-item{
             padding: ${props => props.collapsed ? '.6rem 2rem' : '.79rem 2rem'};
             margin: .3rem 0;

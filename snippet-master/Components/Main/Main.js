@@ -11,7 +11,7 @@ function Main() {
 }
 
 const MainStyled = styled.main`
-    padding-top: 8vh;
+    padding-top: 4.25rem;
 `;
 
 export default Main
